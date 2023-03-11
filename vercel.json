@@ -1,0 +1,59 @@
+{
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node",
+      "config": {
+        "env": {
+          "JWT_SECRET": "$JWT_SECRET",
+          "EMAIL": "$EMAIL",
+          "PASSWORD": "$PASSWORD",
+          "ATLAS_URI": "$ATLAS_URI"
+        }
+      }
+    }
+  ],
+  "routes": [
+    { 
+      "src": "/api/login2",
+      "dest": "/api/router2.js"
+    },
+    {
+      "src": "/api/protected",
+      "dest": "/api/router2.js"
+    },
+    {
+      "src": "/user-data",
+      "dest": "/router.js"
+    },
+    {
+      "src": "/protected",
+      "dest": "/router.js"
+    },
+    {
+      "src": "/register",
+      "dest": "/router.js"
+    },
+    {
+      "src": "/resetPassword",
+      "dest": "/router.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "http://localhost:8080/api/$1",
+      "headers": {
+        "host": "localhost:8080"
+      },
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ],
+  "env": {
+    "VAR_NAME": "value",
+    "MONGODB_URI": "mongodb+srv://abhaywankhade2004:9529370446@cluster0.kvkqvtb.mongodb.net/login?retryWrites=true&w=majority",
+    "PORT": "$PORT"
+  }
+}
