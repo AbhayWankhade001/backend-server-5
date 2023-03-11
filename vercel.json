@@ -5,16 +5,13 @@
       "use": "@vercel/node",
       "config": {
         "env": {
-          "JWT_SECRET": "$JWT_SECRET",
-          "EMAIL": "$EMAIL",
-          "PASSWORD": "$PASSWORD",
-          "ATLAS_URI": "$ATLAS_URI"
+          "NODE_ENV": "production"
         }
       }
     }
   ],
   "routes": [
-    { 
+    {
       "src": "/api/login2",
       "dest": "/api/router2.js"
     },
@@ -52,8 +49,9 @@
     }
   ],
   "env": {
-    "VAR_NAME": "value",
-    "MONGODB_URI": "mongodb+srv://abhaywankhade2004:9529370446@cluster0.kvkqvtb.mongodb.net/login?retryWrites=true&w=majority",
-    "PORT": "$PORT"
+    "ATLAS_URI": "$ATLAS_URI",
+    "JWT_SECRET": "$JWT_SECRET",
+    "EMAIL": "$EMAIL",
+    "PASSWORD": "$PASSWORD"
   }
 }
